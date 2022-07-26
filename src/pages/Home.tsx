@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 
 import React from 'react';
-import { BsHouse } from 'react-icons/bs';
+import { BsHouse, BsHeart, BsBell } from 'react-icons/bs';
 type Props = {};
 
 const Home = (props: Props) => {
@@ -13,10 +13,26 @@ const Home = (props: Props) => {
           <span className='navigation__brand__name'>tripper</span>
         </div>
         <div className='navigation__nav'>
-          <span>nav</span>
+          <ul>
+            <li>
+              <a href='none'>Accomodations</a>
+            </li>
+            <li>
+              <a href='nond'>Car rentals</a>
+            </li>
+            <li>
+              <a href='nond'>Flights</a>
+            </li>
+          </ul>
         </div>
         <div className='navigation__info'>
-          <span>info</span>
+          <BsHeart className='navigation__info__icon' />
+          <BsBell className='navigation__info__icon' />
+          <img
+            src='https://avatars.githubusercontent.com/u/109676581?v=4'
+            alt='profile'
+            className='navigation__info__profile'
+          />
         </div>
       </header>
     </Layout>
