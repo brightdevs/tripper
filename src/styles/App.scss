@@ -1,9 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@100;300;400;500&display=swap');
+/* COLORS */
+$pink: #F67565;
+$green: #459E8C;
+$white: #FFFFFF;
+$black: #212121;
+$light-grey: #c2c2c2;
+
+/* font sizes */
+$font-regular: 16px;
+$font-large: 27px;
+
+/* flex */
+@mixin flex($directin, $justify, $align) {
+  display: flex;
+  flex-direction: $directin;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: $pink;
+  height: 100vh;
+  @include flex(column, center, center);
+
+}
+
+
+
+/* HOME */
+
+.app-wrapper {
+  @include flex(column, flex-start, flex-start);
+  height: 80vh;
+  background-color: $white;
+  width: 80vw;
+  border-radius: 5px;
+
+  .navigation {
+    background-color: $white;
+    height: 10vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    @include flex(row, space-between, center);
+    // add shadow
+    border-bottom: 2px solid $light-grey;
+
+    box-shadow: 0 2px 0 rgba(255, 255, 255, 0.1);
+
+    &__brand {
+      flex: 1;
+      @include flex(row, center, flex-start);
+
+
+      &__icon {
+        font-size: $font-large;
+        font-weight: 500;
+        color: $green;
+      }
+
+      &__name {
+        font-size: $font-large;
+        font-weight: 500;
+        color: $black;
+        margin-left: 2px;
+      }
+    }
+
+    &__nav {
+      flex: 2;
+
+      ul {
+        @include flex(row, space-evenly, center);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          a {
+            text-decoration: none;
+            color: $black;
+            font-size: $font-regular;
+            font-weight: 500;
+            padding: 0 10px;
+
+            &:hover {
+              color: $green;
+            }
+          }
+        }
+      }
+    }
+
+    &__info {
+      flex: 0.5;
+      @include flex(row, space-around, center);
+
+      &__icon {
+        font-size: $font-regular;
+
+      }
+
+      &__profile {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+    }
+  }
+
 }
