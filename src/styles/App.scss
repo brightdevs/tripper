@@ -1,3 +1,17 @@
+/* COLORS */
+$pink: #F67565;
+$green: #459E8C;
+
+/* flex */
+@mixin flex($directin, $justify, $align) {
+  display: flex;
+  flex-direction: $directin;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +20,18 @@
 
 body {
   background-color: blanchedalmond;
+  height: 100vh;
+  @include flex(column, center, center);
+
+}
+
+
+
+/* HOME */
+
+.app-wrapper {
+  @include flex(column, center, center);
+  height: 80vh;
+  background-color: aqua;
+  width: 80vw;
 }
