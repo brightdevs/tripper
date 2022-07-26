@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import { BiMap } from 'react-icons/bi';
+import SmartInput from '../components/SmartInput';
 const Home = () => {
   return (
     <Layout>
@@ -8,12 +9,10 @@ const Home = () => {
       <div className='main-wrapper'>
         <div className='locations'>
           <div className='locations__search'>
-            <div className='section'>
-              <div className='wrapper'>
-                <BiMap className='icon' />
-                <input type='text' />
-              </div>
-            </div>
+            <SmartInput placeHolder='Location' label='Location'>
+              <BiMap className='icon' />
+            </SmartInput>
+            {/* </div> */}
             <div className='section'>
               <input type='text' />
             </div>
