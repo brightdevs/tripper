@@ -7,7 +7,7 @@ type Props = {
 function Layout({ children }: Props) {
   return (
     <div className='app-wrapper'>
-      <h1>Layout</h1>
+      <div></div>
       {children}
     </div>
   );

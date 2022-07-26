@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@100;300;400;500&display=swap');
 /* COLORS */
 $pink: #F67565;
 $green: #459E8C;
+$white: #FFFFFF;
+$black: #212121;
 
 /* flex */
 @mixin flex($directin, $justify, $align) {
@@ -16,10 +19,11 @@ $green: #459E8C;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: $pink;
   height: 100vh;
   @include flex(column, center, center);
 
@@ -30,8 +34,45 @@ body {
 /* HOME */
 
 .app-wrapper {
-  @include flex(column, center, center);
+  @include flex(column, flex-start, flex-start);
   height: 80vh;
-  background-color: aqua;
+  background-color: $white;
   width: 80vw;
+  border-radius: 5px;
+
+  .navigation {
+    background-color: $white;
+    height: 10vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    @include flex(row, space-between, center);
+
+    &__brand {
+      flex: 1;
+      @include flex(row, center, flex-start);
+
+
+      &__icon {
+        font-size: 27px;
+        font-weight: 500;
+        color: $green;
+      }
+
+      &__name {
+        font-size: 27px;
+        font-weight: 500;
+        color: $black;
+        margin-left: 2px;
+      }
+    }
+
+    &__nav {
+      flex: 2;
+    }
+
+    &__info {
+      flex: 1;
+    }
+  }
+
 }
