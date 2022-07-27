@@ -9,9 +9,7 @@ import { IsearchForm } from '../interfaces';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 const Home = () => {
-  const { locations, isLoading, error } = useTypedSelector(
-    (state) => state.locations
-  );
+  const { locations, isLoading } = useTypedSelector((state) => state.locations);
 
   const { loadLocations } = useActions();
   const [searchForm, setSearchForm] = React.useState<IsearchForm>({
