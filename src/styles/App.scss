@@ -148,6 +148,7 @@ body {
           @include flex(column, center, center);
           padding: 5px;
 
+
           .wrapper {
             background-color: #e6e6e6;
             @include flex(row, space-around, center);
@@ -159,6 +160,10 @@ body {
               color: $light-grey;
               margin-right: -2px;
               font-size: 22px;
+
+              &.isFocus {
+                color: $pink;
+              }
             }
 
             .input-wrapper {
