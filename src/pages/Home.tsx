@@ -101,13 +101,18 @@ const Home = () => {
               </button>
             </div>
           </form>
-
-          <h1>locations</h1>
-          <ul>
-            {locations.slice(0, 30).map((el, index) => {
-              return <li key={index}>{el}</li>;
-            })}
-          </ul>
+          <div className='locations__list'>
+            <h1>locations display</h1>
+            <ul>
+              {isLoading ? (
+                <li>Loading...</li>
+              ) : (
+                locations
+                  .slice(0, 100)
+                  .map((location, index) => <li key={index}>{location}</li>)
+              )}
+            </ul>
+          </div>
         </div>
         <div className='map'>
           <h1>map</h1>
