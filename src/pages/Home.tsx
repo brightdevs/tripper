@@ -1,55 +1,105 @@
 import React from 'react';
-import { handleFormSubmit } from '../utils';
+import { handleChange } from '../utils';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import { BiMap } from 'react-icons/bi';
-import { BsCalendarWeek } from 'react-icons/bs';
 import SmartInput from '../components/SmartInput';
 import { FiUsers } from 'react-icons/fi';
+import { IsearchForm } from '../interfaces';
+
 const Home = () => {
-  const formRef = React.useRef<HTMLFormElement>(null);
+  const [searchForm, setSearchForm] = React.useState<IsearchForm>({
+    location: '',
+    checkin: '',
+    checkout: '',
+    guests: '',
+  });
+
+  const resetForm = () => {
+    setSearchForm({
+      location: '',
+      checkin: '',
+      checkout: '',
+      guests: '',
+    } as IsearchForm);
+  };
 
   return (
     <Layout>
       <Header />
       <div className='main-wrapper'>
         <div className='locations'>
-          <form
-            ref={formRef}
-            onSubmit={(e) => {
-              handleFormSubmit(e, formRef);
-            }}
-            className='locations__search'
-          >
+          <form className='locations__search'>
             <SmartInput
               placeHolder='Location'
               label='Location'
               type='text'
+              children={<BiMap className='icon' />}
+              ommitIcon={false}
+              handleChange={handleChange}
+              setSearchForm={setSearchForm}
+              value={searchForm?.location!}
               name='location'
-            >
-              <BiMap className='icon' />
-            </SmartInput>
-            <SmartInput placeHolder='' label='From' type='date' name='fromDate'>
-              <BsCalendarWeek className='icon calendar' />
-            </SmartInput>
+            />
             <SmartInput
-              placeHolder='hello'
-              label='To'
+              placeHolder='Check in'
+              label='Check in'
               type='date'
-              name='toDate'
-            >
-              <BsCalendarWeek className='icon calendar' />
-            </SmartInput>
+              ommitIcon={true}
+              handleChange={handleChange}
+              setSearchForm={setSearchForm}
+              value={searchForm?.checkin!}
+              name='checkin'
+            />
             <SmartInput
-              placeHolder='2 persons'
-              label='Guest'
+              placeHolder='Check out'
+              label='Check out'
+              type='date'
+              ommitIcon={true}
+              handleChange={handleChange}
+              setSearchForm={setSearchForm}
+              value={searchForm?.checkout!}
+              name='checkout'
+            />
+            <SmartInput
+              placeHolder='Guests'
+              label='Guests'
               type='number'
-              name='persons'
-            >
-              <FiUsers className='icon' />
-            </SmartInput>
+              ommitIcon={false}
+              children={<FiUsers className='icon' />}
+              handleChange={handleChange}
+              setSearchForm={setSearchForm}
+              value={searchForm?.guests!}
+              name='guests'
+            />
             <div className='locations__search__btn'>
-              <button type='submit' className='btn btn-info'>
+              <button
+                disabled={
+                  !searchForm.location ||
+                  !searchForm.checkin ||
+                  !searchForm.checkout ||
+                  !searchForm.guests
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  //   handleFormSubmit(searchForm, setSearchForm);
+                  setSearchForm({
+                    location: '',
+                    checkin: '',
+                    checkout: '',
+                    guests: '',
+                  } as IsearchForm);
+                }}
+                type='submit'
+                className={`btn btn-info ${
+                  !searchForm.location ||
+                  !searchForm.checkin ||
+                  !searchForm.checkout ||
+                  !searchForm.guests
+                    ? 'disabled'
+                    : ''
+                }`}
+              >
                 Search
               </button>
             </div>

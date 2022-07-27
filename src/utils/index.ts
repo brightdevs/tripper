@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { IsearchForm } from '../interfaces';
 export const styledInjector = (
   children: React.ReactNode,
   className: string
@@ -11,17 +11,13 @@ export const styledInjector = (
   }
 };
 
-export const handleFormSubmit = (
-  e: React.FormEvent<HTMLFormElement>,
-  formRef: React.RefObject<HTMLFormElement>
+export const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  setSearchForm: React.Dispatch<React.SetStateAction<IsearchForm>>
 ) => {
-  e.preventDefault();
-  const data = new FormData(e.target as HTMLFormElement).entries();
-  const dataForm: {
-    [key: string]: FormDataEntryValue;
-  } = {};
-  for (const [key, value] of data) {
-    dataForm[key] = value;
-  }
-  formRef.current?.reset();
+  const { name, value } = e.target;
+  setSearchForm((prevState) => ({
+    ...prevState,
+    [name]: value,
+  }));
 };

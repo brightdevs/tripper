@@ -302,4 +302,11 @@ body {
     background-color: $pink;
     color: $white;
   }
+
+  // for disabled
+  &.disabled {
+    background-color: $light-grey;
+    color: $black;
+    cursor: not-allowed;
+  }
 }
