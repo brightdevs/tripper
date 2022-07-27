@@ -11,6 +11,20 @@ export const styledInjector = (
   }
 };
 
+export const handleFormSubmit = (
+  e: React.FormEvent<HTMLFormElement>,
+  searchForm: IsearchForm,
+  setSearchForm: React.Dispatch<React.SetStateAction<IsearchForm>>
+) => {
+  e.preventDefault();
+  setSearchForm({
+    location: '',
+    checkin: '',
+    checkout: '',
+    guests: '',
+  } as IsearchForm);
+};
+
 export const handleChange = (
   e: React.ChangeEvent<HTMLInputElement>,
   setSearchForm: React.Dispatch<React.SetStateAction<IsearchForm>>
