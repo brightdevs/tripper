@@ -12,17 +12,18 @@ export const loadLocations =
       .then((response) => {
         console.log('response', response);
         const locations = response.data.map((result: any) => {
-          return {
-            id: result.id,
-            name: result.name,
-            picture_url: result.picture_url,
-            property_type: result.property_type,
-            price: result.price,
-            latitude: result.latitude,
-            longitude: result.longitude,
-            max_guests: result.bedrooms * 2,
-            bedrooms: result.bedrooms,
-          };
+          return result.name;
+          // return {
+          //   id: result.id,
+          //   name: result.name,
+          //   picture_url: result.picture_url,
+          //   property_type: result.property_type,
+          //   price: result.price,
+          //   latitude: result.latitude,
+          //   longitude: result.longitude,
+          //   max_guests: result.bedrooms * 2,
+          //   bedrooms: result.bedrooms,
+          // };
         });
         console.log('locations', locations);
         dispatch({

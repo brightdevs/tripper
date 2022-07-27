@@ -7,8 +7,12 @@ import SmartInput from '../components/SmartInput';
 import { FiUsers } from 'react-icons/fi';
 import { IsearchForm } from '../interfaces';
 import { useActions } from '../hooks/useActions';
-
+import { useTypedSelector } from '../hooks/useTypedSelector';
 const Home = () => {
+  const { locations, isLoading, error } = useTypedSelector(
+    (state) => state.locations
+  );
+
   const { loadLocations } = useActions();
   const [searchForm, setSearchForm] = React.useState<IsearchForm>({
     location: '',
@@ -83,16 +87,6 @@ const Home = () => {
                   !searchForm.checkout ||
                   !searchForm.guests
                 }
-                // onClick={(e) => {
-                //   e.preventDefault();
-                //   //   handleFormSubmit(searchForm, setSearchForm);
-                //   setSearchForm({
-                //     location: '',
-                //     checkin: '',
-                //     checkout: '',
-                //     guests: '',
-                //   } as IsearchForm);
-                // }}
                 type='submit'
                 className={`btn btn-info ${
                   !searchForm.location ||
@@ -109,6 +103,11 @@ const Home = () => {
           </form>
 
           <h1>locations</h1>
+          <ul>
+            {locations.slice(0, 30).map((el, index) => {
+              return <li key={index}>{el}</li>;
+            })}
+          </ul>
         </div>
         <div className='map'>
           <h1>map</h1>
