@@ -4,17 +4,26 @@ type Props = {
   children: React.ReactChild;
   placeHolder: string;
   label: string;
+  type: string;
+  name: string;
 };
 
-const SmartInput = ({ children, placeHolder = '', label }: Props) => {
+const SmartInput = ({
+  children,
+  placeHolder = '',
+  label,
+  type = 'text',
+  name,
+}: Props) => {
   const [isFocus, setIsFocus] = React.useState(false);
   return (
-    <form className='smart-input'>
+    <div className='smart-input'>
       <div className='wrapper'>
         {styledInjector(children, isFocus ? 'isFocus' : '')}
         <div className='input-wrapper'>
           <input
-            type='text'
+            name={name}
+            type={type}
             placeholder={placeHolder}
             onFocus={() => {
               setIsFocus(true);
@@ -26,7 +35,7 @@ const SmartInput = ({ children, placeHolder = '', label }: Props) => {
           <span className='label'>{label} </span>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

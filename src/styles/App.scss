@@ -55,10 +55,7 @@ body {
     width: 100%;
     border-radius: 5px 5px 0 0;
     @include flex(row, space-between, center);
-    // add shadow
-    border-bottom: 2px solid $light-grey;
 
-    box-shadow: 0 2px 0 rgba(255, 255, 255, 0.1);
 
     &__brand {
       flex: 1;
@@ -133,14 +130,16 @@ body {
       @include flex(column, flex-start, flex-start);
       height: 100%;
       background-color: $white;
+      padding: 0 10px;
 
 
 
       &__search {
         display: flex;
         width: 100%;
-        height: 10vh;
-        padding: 0px;
+        height: 15vh;
+        padding: 5px;
+        border-radius: 5px;
         background-color: #f1f1f1;
 
         .smart-input {
@@ -155,10 +154,18 @@ body {
             padding: 2px 0 5px 0;
             border-radius: 5px;
 
+            .calendar {
+              font-size: 14px !important;
+
+              &.isFocused {
+                color: $pink;
+              }
+            }
+
             .icon {
-              width: 20%;
+              width: 15%;
               color: $light-grey;
-              margin-right: -2px;
+              margin: 0 5px 0 2px;
               font-size: 22px;
 
               &.isFocus {
@@ -178,10 +185,11 @@ body {
 
 
             input {
-              width: 80%;
+              width: 85%;
               background-color: transparent;
               border: none;
               padding: 5px;
+              color: $light-grey;
 
               &:focus {
                 outline: none;
@@ -191,13 +199,19 @@ body {
             }
 
             input:focus+.label {
-              color: $black;
+              color: $pink;
               font-size: 10px;
             }
           }
         }
 
         input::placeholder {
+          color: $light-grey;
+        }
+
+        input[type='date']:focus::placeholder {
+          color: $pink;
+          font-size: 10px;
           color: $light-grey;
         }
 
@@ -254,8 +268,14 @@ body {
           @include flex(column, center, center);
           ;
         }
+
+        &__btn {
+          padding: 5px;
+          @include flex(column, center, center);
+        }
       }
     }
+
 
     .map {
       flex: 1;
@@ -264,4 +284,22 @@ body {
     }
   }
 
+}
+
+/* Buttons */
+.btn {
+  background-color: $green;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: $white;
+  font-size: $font-regular;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+
+  &:hover {
+    background-color: $pink;
+    color: $white;
+  }
 }

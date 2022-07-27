@@ -10,3 +10,18 @@ export const styledInjector = (
     });
   }
 };
+
+export const handleFormSubmit = (
+  e: React.FormEvent<HTMLFormElement>,
+  formRef: React.RefObject<HTMLFormElement>
+) => {
+  e.preventDefault();
+  const data = new FormData(e.target as HTMLFormElement).entries();
+  const dataForm: {
+    [key: string]: FormDataEntryValue;
+  } = {};
+  for (const [key, value] of data) {
+    dataForm[key] = value;
+  }
+  formRef.current?.reset();
+};
