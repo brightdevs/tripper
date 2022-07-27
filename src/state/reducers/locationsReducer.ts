@@ -1,10 +1,6 @@
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
-interface ILocationsReducerState {
-  locations: string[];
-  isLoading: boolean;
-  error: string;
-}
+import { ILocationsReducerState } from '../../interfaces';
 
 const initialState: ILocationsReducerState = {
   locations: [],
