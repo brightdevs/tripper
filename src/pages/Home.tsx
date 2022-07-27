@@ -107,7 +107,9 @@ const Home = () => {
               ) : (
                 locations
                   .slice(0, 100)
-                  .map((location, index) => <li key={index}>{location}</li>)
+                  .map((location, index) => (
+                    <li key={index}>{location.name}</li>
+                  ))
               )}
             </ul>
           </div>
