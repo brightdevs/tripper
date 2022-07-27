@@ -15,15 +15,6 @@ const Home = () => {
     guests: '',
   });
 
-  const resetForm = () => {
-    setSearchForm({
-      location: '',
-      checkin: '',
-      checkout: '',
-      guests: '',
-    } as IsearchForm);
-  };
-
   return (
     <Layout>
       <Header />
