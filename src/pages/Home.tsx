@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { BiMap } from 'react-icons/bi';
 import SmartInput from '../components/SmartInput';
 import { FiUsers } from 'react-icons/fi';
+import { BsStarFill } from 'react-icons/bs';
 import { IsearchForm } from '../interfaces';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -105,11 +106,32 @@ const Home = () => {
               {isLoading ? (
                 <li>Loading...</li>
               ) : (
-                locations
-                  .slice(0, 100)
-                  .map((location, index) => (
-                    <li key={index}>{location.name}</li>
-                  ))
+                locations.slice(0, 10).map((location, index) => (
+                  <div key={index} className='list-card '>
+                    <div className='list-card__img'>
+                      <img src={location.picture_url} alt='residence bg-blue' />
+                    </div>
+                    <div className='list-card__content'>
+                      <div className='list-card__content-wrapper'>
+                        <div className='list-card__content-stars'>
+                          <BsStarFill className='icon' />
+                        </div>
+                        <span className='list-card__content-rating'>
+                          {location.review_scores_rating}
+                        </span>
+                        <span className='list-card__content-reviews'>
+                          ({location.number_of_reviews})
+                        </span>
+                      </div>
+                      <h4>{location.name}</h4>
+                      <p>{location.property_type}</p>
+                    </div>
+                    <div className='list-card__price bg-violet'>
+                      <p>{location.price}</p>
+                      <small>Per Night</small>
+                    </div>
+                  </div>
+                ))
               )}
             </ul>
           </div>

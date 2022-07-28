@@ -15,6 +15,8 @@ export interface ILocation {
   longitude: number;
   max_guests: number;
   bedrooms: number;
+  review_scores_rating: number;
+  number_of_reviews: number;
 }
 
 export interface ILocationsReducerState {
