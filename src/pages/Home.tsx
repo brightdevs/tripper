@@ -109,10 +109,10 @@ const Home = () => {
                 locations.slice(0, 10).map((location, index) => (
                   <div key={index} className='list-card '>
                     <div className='list-card__img'>
-                      <img src={location.picture_url} alt='residence bg-blue' />
+                      <img src={location.picture_url} alt='residence' />
                     </div>
                     <div className='list-card__content'>
-                      <div className='list-card__content-wrapper'>
+                      <div className='list-card__content__header-wrapper'>
                         <div className='list-card__content-stars'>
                           <BsStarFill className='icon' />
                         </div>
@@ -123,12 +123,30 @@ const Home = () => {
                           ({location.number_of_reviews})
                         </span>
                       </div>
-                      <h4>{location.name}</h4>
-                      <p>{location.property_type}</p>
+                      <div className='list-card__content__main-wrapper'>
+                        <h4>{location.name}</h4>
+                        <p>{location.property_type}</p>
+                      </div>
+
+                      <div className='list-card__content__footer-wrapper'>
+                        <div className='list-card__content-bedrooms'>
+                          <span>
+                            {location.bedrooms}{' '}
+                            {location.bedrooms === 1 ? 'bedroom' : 'bedrooms'}{' '}
+                          </span>
+                        </div>
+                        <div className='list-card__content-guests'>
+                          <span>{location.max_guests}</span>
+                          <span>Guest</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className='list-card__price bg-violet'>
-                      <p>{location.price}</p>
-                      <small>Per Night</small>
+                    <div className='list-card__price'>
+                      <div>
+                        <p>{location.price}</p>
+                        <small>Per Night</small>
+                      </div>
+                      <button>View</button>
                     </div>
                   </div>
                 ))
