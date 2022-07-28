@@ -23,6 +23,8 @@ export const loadLocations =
             longitude: result.longitude,
             max_guests: result.bedrooms * 2,
             bedrooms: result.bedrooms,
+            review_scores_rating: result.review_scores_rating,
+            number_of_reviews: result.number_of_reviews,
           };
         });
         console.log('locations', locations);

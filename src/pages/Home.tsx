@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { BiMap } from 'react-icons/bi';
 import SmartInput from '../components/SmartInput';
 import { FiUsers } from 'react-icons/fi';
+import LocationCard from '../components/LocationCard';
 import { IsearchForm } from '../interfaces';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -106,9 +107,9 @@ const Home = () => {
                 <li>Loading...</li>
               ) : (
                 locations
-                  .slice(0, 100)
+                  .slice(0, 10)
                   .map((location, index) => (
-                    <li key={index}>{location.name}</li>
+                    <LocationCard key={index} {...location} />
                   ))
               )}
             </ul>
