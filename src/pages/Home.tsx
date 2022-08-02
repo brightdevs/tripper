@@ -117,7 +117,7 @@ const Home = () => {
           </div>
         </div>
         <div className='map'>
-          <Map />
+          <Map locations={locations} />
         </div>
       </div>
     </Layout>
