@@ -372,8 +372,16 @@ body {
 
     .map {
       flex: 1;
-      height: 100%;
+      width: 100% !important;
+      height: 100% !important;
       background-color: $violet;
+      padding: 10px;
+
+      .leaflet-container {
+        width: 100%;
+        height: 70vh;
+
+      }
     }
   }
 

@@ -9,6 +9,7 @@ import LocationCard from '../components/LocationCard';
 import { IsearchForm } from '../interfaces';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import Map from '../components/Map';
 const Home = () => {
   const { locations, isLoading } = useTypedSelector((state) => state.locations);
 
@@ -116,7 +117,7 @@ const Home = () => {
           </div>
         </div>
         <div className='map'>
-          <h1>map</h1>
+          <Map />
         </div>
       </div>
     </Layout>
